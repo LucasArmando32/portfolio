@@ -1,0 +1,245 @@
+/* ─── Base ─────────────────────────────────────────────── */
+:root {
+  --bg:        #0d1117;
+  --surface:   #161b22;
+  --surface2:  #1c2333;
+  --border:    rgba(255,255,255,0.08);
+  --accent:    #3b82f6;
+  --accent2:   #8b5cf6;
+  --text:      #e2e8f0;
+  --muted:     #8b949e;
+  --radius:    16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59,130,246,0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 80%,  rgba(139,92,246,0.10), transparent);
+  color: var(--text);
+  padding-top: 60px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ─── Navbar ────────────────────────────────────────────── */
+.navbar {
+  background: rgba(13,17,23,0.75) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  height: 60px;
+}
+
+.navbar-item, .navbar-burger {
+  color: var(--muted) !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.navbar-item:hover {
+  color: #fff !important;
+  background: transparent !important;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar-menu {
+  background: rgba(13,17,23,0.95) !important;
+}
+
+/* ─── Sections ──────────────────────────────────────────── */
+.section { padding: 2rem 1.5rem; }
+
+/* ─── Cards / Boxes ─────────────────────────────────────── */
+.box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  color: var(--text);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+/* Hero / About card */
+.main-box {
+  background: linear-gradient(135deg, #1a2744 0%, #1c1f3a 50%, #1a2744 100%);
+  border: 1px solid rgba(59,130,246,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.main-box::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.info-card {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.section-card { min-height: 100%; }
+
+/* ─── Typography ────────────────────────────────────────── */
+.title {
+  color: #f1f5f9 !important;
+}
+
+/* Gradient name */
+h1.title.is-1 {
+  background: linear-gradient(90deg, #fff 30%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.8rem !important;
+  font-weight: 800 !important;
+  line-height: 1.1;
+}
+
+.subtitle { color: var(--muted) !important; }
+
+p { color: #cbd5e1; line-height: 1.7; }
+
+a { color: #7dd3fc; transition: color 0.2s; }
+a:hover { color: #38bdf8; }
+
+/* Section heading accent */
+h2.title.is-2 {
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--accent), var(--accent2)) 1;
+  margin-bottom: 1.5rem !important;
+  display: inline-block;
+}
+
+/* ─── Profile image ─────────────────────────────────────── */
+.profile-img {
+  width: 200px !important;
+  height: 200px !important;
+  max-width: 200px !important;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  background: linear-gradient(var(--surface), var(--surface)) padding-box,
+              linear-gradient(135deg, var(--accent), var(--accent2)) border-box;
+  box-shadow: 0 0 30px rgba(59,130,246,0.3);
+}
+
+/* ─── Timeline entries ──────────────────────────────────── */
+.exp-entry, .edu-entry {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 1.8rem;
+  border-left: 2px solid transparent;
+  background: linear-gradient(var(--surface), var(--surface)) padding-box,
+              linear-gradient(180deg, var(--accent), var(--accent2)) border-box;
+}
+
+.exp-entry::before, .edu-entry::before {
+  content: '';
+  position: absolute;
+  left: -5px; top: 6px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* ─── Tags ──────────────────────────────────────────────── */
+.tag {
+  border-radius: 6px !important;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.tag.is-medium { font-size: 0.82rem; }
+
+/* Light-background tags → dark text */
+.tag.is-light,
+.tag.is-primary.is-light,
+.tag.is-info.is-light,
+.tag.is-success.is-light,
+.tag.is-warning.is-light,
+.tag.is-danger.is-light,
+.tag.is-link.is-light {
+  color: #1e293b !important;
+}
+
+/* Default tags */
+.tag:not([class*="is-primary"]):not([class*="is-info"]):not([class*="is-success"]):not([class*="is-warning"]):not([class*="is-danger"]):not([class*="is-link"]):not([class*="is-dark"]) {
+  color: #1e293b !important;
+  background-color: #e2e8f0 !important;
+}
+
+/* ─── Languages ─────────────────────────────────────────── */
+.lang-card {
+  padding: 1.2rem 0.75rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.lang-card:hover {
+  background: rgba(59,130,246,0.08);
+  transform: translateY(-2px);
+}
+
+.lang-name {
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+/* ─── Contact buttons ───────────────────────────────────── */
+.button {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+
+.button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* ─── Fade-in animation ─────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.box {
+  animation: fadeUp 0.5s ease both;
+}
