@@ -1,0 +1,16 @@
+services:
+  portfolio:
+    image: nginx:alpine
+    volumes:
+      - /var/www/html:/usr/share/nginx/html:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio.rule=Host(`lucasreitmann.me`) || Host(`www.lucasreitmann.me`)"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true
